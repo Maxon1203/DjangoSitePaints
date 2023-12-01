@@ -1,0 +1,65 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Добро пожаловать в Галерею Картин</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="animated-background"></div>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-logo">
+                    <h1>Галерея Картин</h1>
+                </div>
+                <nav class="header-nav">
+                    <a href="{% url 'main' %}">Главная</a>
+                    <a href="{% url 'painting_list' %}">Галерея</a>
+                    <a href="{% url 'about' %}">О нас</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main  class="main-content">
+        <div CLASS="container">
+                <section style="color: #d9d9d9; text-align: center; font-size: 20px; padding: 10px">
+                    <h2 style="color: #F1C40FFF;">О нашей галерее</h2>
+                    <p style="line-height: 30px">"Галерея Картин – это не просто выставочное пространство, это место, где искусство оживает и рассказывает свои истории. Мы стремимся показать красоту и глубину мира живописи, демонстрируя произведения как уважаемых мастеров, так и талантливых новичков. Наша миссия – дать каждому посетителю возможность найти свое вдохновение среди многообразия красок и форм."</p>
+                </section>
+            <div class="about-us">
+                <section style="color: #d9d9d9; text-align: center;line-height: 30px; font-size: 20px">
+                    <h2 style="color: #F1C40FFF">Наш подход</h2>
+                    <p>ЕВ Галерее Картин мы верим, что искусство должно быть доступно каждому. Поэтому мы создаем интерактивные выставки, где вы не просто смотрите на картину, а погружаетесь в атмосферу, созданную художником. Мы регулярно проводим мастер-классы, лекции и курсы для всех желающих раскрыть свой творческий потенциал.</p>
+                </section>
+            </div>
+             <div class="about-us">
+                <section style="color: #d9d9d9; text-align: center;line-height: 30px; font-size: 20px">
+                    <h2 style="color: #F1C40FFF">Присоединяйтесь к нашему сообществу</h2>
+                    <p>Мы приглашаем вас присоединиться к нашему сообществу ценителей искусства. В Галерее Картин вы не только увидите замечательные работы, но и сможете встретиться с единомышленниками, обсудить последние тенденции в мире искусства и даже встретиться с художниками лично. Подписывайтесь на наши новости и не пропустите наши следующие мероприятия.</p>
+                </section>
+            </div>
+             <div class="about-us">
+                <section style="color: #d9d9d9; text-align: center;line-height: 30px; font-size: 20px">
+                    <h2 style="color: #F1C40FFF">Наши ценности</h2>
+                    <p>Каждая картина в нашей галерее отобрана с любовью и вниманием к деталям. Мы ценим качество, оригинальность и эмоциональное воздействие искусства. Наша галерея – это своего рода хранитель историй, заключенных в красках и холсте, и каждый посетитель способен найти здесь часть своего внутреннего мира.</p>
+                </section>
+            </div>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <p>&copy; 2023 Галерея Картин. Все права защищены.</p>
+            <div class="social-links">
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">Facebook</a>
+                <a href="#" class="social-link">Twitter</a>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'animated.js' %}"></script>
+</body>
+</html>

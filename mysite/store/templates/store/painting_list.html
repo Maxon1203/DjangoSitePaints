@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Галерея картин</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-logo">
+                    <h1>Галерея Картин</h1>
+                </div>
+                <nav class="header-nav">
+                    <a href="{% url 'main' %}">Главная</a>
+                    <a href="{% url 'painting_list' %}">Галерея</a>
+                    <a href="{% url 'about' %}">О нас</a>
+                    <button onclick="location.href='{% url 'add_painting' %}'" class="add-button">Добавить картину</button>
+                </nav>
+            </div>
+        </div>
+</header>
+<body>
+<div id="animated-background"></div>
+    <div class="main-content">
+        <div class="content-container">
+            <main>
+                <div class="gallery-container">
+                    {% for painting in paintings %}
+                        <div class="card">
+                            <div class="image-container">
+                                <img src="{{ painting.image.url }}" alt="{{ painting.title }}">
+                            </div>
+                            <div class="text-container">
+                                <h2>{{ painting.title }}</h2>
+                                <p>{{ painting.description }}</p>
+                                <p class="price">{{ painting.price }} руб.</p>
+                                <p class="size">{{ painting.size }}</p>
+                                <p class="medium">{{ painting.medium }}</p>
+                                <div class="buttons-container">
+                                    <button class="edit-button">
+                                        <a class="text" href="{% url 'edit_painting' painting.id %}">Редактировать</a>
+                                    </button>
+                                    <button class="delete-button">
+                                        <a class="text" href="{% url 'delete_painting' painting.id %}" onclick="return confirm('Вы уверены, что хотите удалить эту картину?');">Удалить</a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <p>В галерее пока нет картин.</p>
+                    {% endfor %}
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- Подключите стилистику шрифтов и стили CSS как в предыдущих примерах -->
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <p>&copy; 2023 Галерея Картин. Все права защищены.</p>
+            <div class="social-links">
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">Facebook</a>
+                <a href="#" class="social-link">Twitter</a>
+            </div>
+        </div>
+    </footer>
+<script src="{% static 'animated.js' %}"></script>
+<script src="{% static 'paralax.js' %}" ></script>
+</body>
+</html>

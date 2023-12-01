@@ -1,0 +1,46 @@
+<!--<form method="post" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <button type="submit">Добавить картину</button>-->
+<!--</form>-->
+
+
+{% if image_url %}
+<style>
+    body {
+        background-image: url('{{ image_url }}');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed; /* Опционально: если хотите, чтобы фон не скроллился вместе со страницей */
+    }
+</style>
+{% endif %}
+
+<body>
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<div class="form-container">
+
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+    <label for="title">Название:</label>
+    {{form.title}}
+
+    <label for="description">Описание:</label>
+    {{form.description}}
+
+    <label for="price">Цена:</label>
+    {{form.price}}
+
+    <label for="size">Размер:</label>
+    {{form.size}}
+
+    <label for="medium">Тип красок:</label>
+    {{form.medium}}
+    <label for="image">Изображение:</label>
+    <a class="text">{{form.image}}</a>
+     <input type="submit" value="Сохранить изменения">
+  </form>
+</div>
+</body>
+

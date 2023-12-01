@@ -1,0 +1,65 @@
+{% load static  %}
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Добро пожаловать в Галерею Картин</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div id="animated-background"></div>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-logo">
+                    <h1>Галерея Картин</h1>
+                </div>
+                <nav class="header-nav">
+                    <a href="">Главная</a>
+                    <a href="{% url 'painting_list' %}">Галерея</a>
+                    <a href="{% url 'about' %}">О нас</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main  class="main-content">
+
+        <h1>
+            <p class="h1"><font face="Caveat-Regular">Добро пожаловать в нашу галерею!</font></p>
+        </h1>
+        <div>
+            <h3 class="h1">Исследуйте коллекцию изысканных произведений искусства, от классических масляных картин до современных холстов.</h3>
+        </div>
+            <script src="{% static 'animated.js' %}"></script>
+            <script src="{% static 'paralax.js' %}" ></script>
+        <div class="gallery-container">
+  <!-- Повторяйте этот блок для каждой картинки в галерее -->
+          {% for painting in paintings %}
+          <div class="image-caption-container">
+                  <script src="{% static 'animated.js' %}"></script>
+            <script src="{% static 'paralax.js' %}" ></script>
+            <img src="{{ painting.image.url }}" alt="Описание картинки">
+            <div class="caption-overlay">
+              <div class="caption-text">
+                  <h3><font face="Caveat-Regular">{{painting.title}}</font></h3>
+                  <p><font face="Caveat-Regular">{{painting.description}}</font></p>
+              </div>
+            </div>
+        </div>
+           {% endfor %}
+       </div>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-container">
+            <p>&copy; 2023 Галерея Картин. Все права защищены.</p>
+            <div class="social-links">
+                <a href="#" class="social-link">Instagram</a>
+                <a href="#" class="social-link">Facebook</a>
+                <a href="#" class="social-link">Twitter</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

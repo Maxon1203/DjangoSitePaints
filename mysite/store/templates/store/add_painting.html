@@ -1,0 +1,31 @@
+<!--<form method="post" enctype="multipart/form-data">-->
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <button type="submit">Добавить картину</button>-->
+<!--</form>-->
+{% load static %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+<div class="form-container">
+  <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+    <label for="title">Название:</label>
+    <input type="text" id="title" name="title" required>
+
+    <label for="description">Описание:</label>
+    <textarea id="description" name="description" required></textarea>
+
+    <label for="price">Цена:</label>
+    <input type="number" id="price" name="price" required>
+
+    <label for="size">Размер:</label>
+    <input type="text" id="size" name="size" required>
+
+    <label for="medium">Тип красок:</label>
+    <input type="text" id="medium" name="medium" required>
+
+    <label for="image">Изображение:</label>
+    <input type="file" id="image" name="image" required>
+
+     <input type="submit" value="Добавить картину">
+  </form>
+</div>
